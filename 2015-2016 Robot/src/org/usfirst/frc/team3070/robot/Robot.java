@@ -15,7 +15,7 @@ public class Robot extends IterativeRobot implements Pronstants{
 	//initialize hardware variables
 	CANTalon left, right;
 	Encoder enLeft, enRight;
-	Joystick xbox;
+	Joystick joyLeft, joyRight;
 	
     public void robotInit() {
     	//initialize motors and encoders
@@ -26,7 +26,8 @@ public class Robot extends IterativeRobot implements Pronstants{
     	enLeft=new Encoder(RIGHT_FIRST, RIGHT_SECOND);
     	
     	//initialize joystick
-    	xbox = new Joystick(JOYSTICK_PORT);
+    	joyLeft = new Joystick(JOYSTICK_PORT_LEFT);
+    	joyRight = new Joystick(JOYSTICK_PORT_RIGHT);
     }
 	
 	public void disabledPeriodic() {
@@ -50,8 +51,10 @@ public class Robot extends IterativeRobot implements Pronstants{
     }
 
     public void teleopPeriodic() {
-    	left.set(xbox.getAxis(null));
-    	right.set(xbox.getAxis(null));
+    	left.set(joyLeft.getY(null));
+    	right.set(joyRight.getY(null));
+    	
+    	
     }
     
     public void testPeriodic() {
