@@ -17,6 +17,7 @@ public interface Pronstants {
 	public static final int RIGHT_SECOND=0;
 	
 	// Joystick Axes And Ports
-	public static final int JOYSTICK_PORT_LEFT=0;
-	public static final int JOYSTICK_PORT_RIGHT=0;
+	public static final int JOYSTICK_PORT_LEFT=1;
+	public static final int JOYSTICK_PORT_RIGHT=2;
+	public static final double JOYSTICK_DEADZONE=0.2;
 }

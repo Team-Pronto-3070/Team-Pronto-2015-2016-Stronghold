@@ -51,9 +51,14 @@ public class Robot extends IterativeRobot implements Pronstants{
     }
 
     public void teleopPeriodic() {
-    	left.set(joyLeft.getY(null));
-    	right.set(joyRight.getY(null));
+    	if(joyLeft.getY()>= JOYSTICK_DEADZONE){
+    		left.set(joyLeft.getY(null));
+    	}
+    	if(joyRight.getY()>= JOYSTICK_DEADZONE){
+    		right.set(joyRight.getY(null));
+    	}
     	
+    	ProntoShooterPosition.periodic();
     	
     }
     
