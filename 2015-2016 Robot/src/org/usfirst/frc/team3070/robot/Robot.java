@@ -67,7 +67,8 @@ public class Robot extends IterativeRobot implements Pronstants{
     		right.set(joyRight.getY(null));
     	}
     	
-    	ProntoShooterPosition.periodic();
+    	shooterposition.periodic();
+    	pickup.periodic();
     	
     }
     
