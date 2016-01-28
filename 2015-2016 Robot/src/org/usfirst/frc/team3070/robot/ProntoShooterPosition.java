@@ -21,30 +21,40 @@ public class ProntoShooterPosition implements Pronstants {
 			@Override
 			public ShooterPosition check() {
 				ProntoShooter.periodic();
+				if(joyLeft.getRawButton(3)){
+					return GoingDown;
+				}
 				return Up;
 			}
 		},
 		Down {
 			@Override
 			public ShooterPosition check() {
+				if(joyLeft.getRawButton(3)){
+					return GoingUp;
+				}
 				return Down;
 			}
 		},
-		StartUp {
+		GoingUp {
 			@Override
 			public ShooterPosition check() {
-				return Up;
+				//move shooter
+				//check for limit switch
+				return GoingUp;
 			}
 		},
-		StartDown {
+		GoingDown {
 			@Override
 			public ShooterPosition check() {
-				return Down;
+				//move shooter
+				//check for limit switch
+				return GoingDown;
 			}
 		},
 
 	}
-	public static void periodic() {
+	public void periodic() {
 		state = state.check();
 	}
 }
