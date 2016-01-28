@@ -17,17 +17,26 @@ public class Robot extends IterativeRobot implements Pronstants{
 	Encoder enLeft, enRight;
 	Joystick joyLeft, joyRight;
 	
+	ProntoShooterPosition shooterposition;
+	ProntoShooter shooter;
+	PickUp pickup;
+	
     public void robotInit() {
     	//initialize motors and encoders
     	left=new CANTalon(LEFT);
     	right=new CANTalon(RIGHT);
     	
-    	enLeft=new Encoder(LEFT_FIRST, LEFT_SECOND);
-    	enLeft=new Encoder(RIGHT_FIRST, RIGHT_SECOND);
+    	enLeft=new Encoder(DRIVE_LEFT_FIRST, DRIVE_LEFT_SECOND);
+    	enLeft=new Encoder(DRIVE_RIGHT_FIRST, DRIVE_RIGHT_SECOND);
     	
     	//initialize joystick
     	joyLeft = new Joystick(JOYSTICK_PORT_LEFT);
     	joyRight = new Joystick(JOYSTICK_PORT_RIGHT);
+    	
+    	//initialize other classes
+    	shooterposition = new ProntoShooterPosition();
+    	shooter = new ProntoShooter();
+    	pickup = new PickUp();
     }
 	
 	public void disabledPeriodic() {
